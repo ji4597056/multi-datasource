@@ -1,0 +1,70 @@
+group 'com.github.ji4597056'
+version '1.0'
+
+buildscript {
+    ext {
+        springBootVersion = ${springBootVersion}
+    }
+
+    repositories {
+        mavenLocal()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    mavenCentral()
+}
+
+jar {
+    baseName = 'mybatis-multi-datasource'
+    version = '1.0'
+}
+
+ext {
+    springBootVersion = "1.5.7.RELEASE"
+    swaggerVersion = "2.7.0"
+    jacksonVersion = "2.6.3"
+    codehausJacksonVersion = "1.9.9"
+    springCloudVersion = "Dalston.SR3"
+    druidVersion = "1.0.28"
+    lombokVersion = "1.16.18"
+    mybatisStarterVersion = "1.1.1"
+}
+
+dependencies {
+    //spring boot
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-actuator"
+    compile "org.springframework.boot:spring-boot-devtools"
+    compile "org.springframework.boot:spring-boot-starter-security"
+    compile "org.springframework.boot:spring-boot-starter-jdbc"
+    compile "org.springframework.boot:spring-boot-starter-aop"
+
+    //support
+    compile "io.springfox:springfox-swagger2:${swaggerVersion}"
+    compile "io.springfox:springfox-swagger-ui:${swaggerVersion}"
+    compile "mysql:mysql-connector-java"
+    compile "com.alibaba:druid:${druidVersion}"
+    compile "org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisStarterVersion}"
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+
+    //test
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+

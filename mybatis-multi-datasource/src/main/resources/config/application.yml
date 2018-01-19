@@ -1,0 +1,33 @@
+server:
+  port: ${SERVER_PORT:9999}
+
+spring:
+  application:
+    name: statement
+    custom: # 自定义属性
+      id: 999 # 用于响应体response code
+      debug: ${SPRING_APPLICATION_CUSTOM_DEBUG:true} # 自定义debug模式
+  profiles:
+    active: druid,mysql # application profiles
+  http:
+    encoding:
+      force: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+management:
+  security:
+    enabled: false
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+    sensitive: false
+  health:
+    sensitive: false
+
+
+

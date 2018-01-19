@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    # 防止循环依赖
+    initialize: false
+    dataSources:
+      # test1 db
+      test1Db:
+        ip: localhost
+        port: 3306
+        database: test1
+        url: jdbc:mysql://${spring.datasource.dataSources.test1Db.ip}:${spring.datasource.dataSources.test1Db.port}/${spring.datasource.dataSources.test1Db.database}?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true&useSSL=false
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        name: test1Db
+      # test2 db
+      test2Db:
+        ip: localhost
+        port: 3306
+        database: test2
+        url: jdbc:mysql://${spring.datasource.dataSources.test2Db.ip}:${spring.datasource.dataSources.test2Db.port}/${spring.datasource.dataSources.test2Db.database}?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&allowMultiQueries=true&useSSL=false
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+        name: test2Db
