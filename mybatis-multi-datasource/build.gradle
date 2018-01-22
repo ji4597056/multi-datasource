@@ -3,7 +3,7 @@ version '1.0'
 
 buildscript {
     ext {
-        springBootVersion = ${springBootVersion}
+        springBootVersion = "1.5.7.RELEASE"
     }
 
     repositories {
@@ -37,7 +37,6 @@ jar {
 }
 
 ext {
-    springBootVersion = "1.5.7.RELEASE"
     swaggerVersion = "2.7.0"
     jacksonVersion = "2.6.3"
     codehausJacksonVersion = "1.9.9"
