@@ -32,7 +32,7 @@ repositories {
 }
 
 jar {
-    baseName = 'mybatis-multi-datasource'
+    baseName = 'jpa-multi-datasource'
     version = '1.0'
 }
 
@@ -40,7 +40,6 @@ ext {
     swaggerVersion = "2.7.0"
     druidVersion = "1.0.28"
     lombokVersion = "1.16.18"
-    mybatisStarterVersion = "1.1.1"
 }
 
 dependencies {
@@ -51,13 +50,13 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-security"
     compile "org.springframework.boot:spring-boot-starter-jdbc"
     compile "org.springframework.boot:spring-boot-starter-aop"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
 
     //support
     compile "io.springfox:springfox-swagger2:${swaggerVersion}"
     compile "io.springfox:springfox-swagger-ui:${swaggerVersion}"
     compile "mysql:mysql-connector-java"
     compile "com.alibaba:druid:${druidVersion}"
-    compile "org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisStarterVersion}"
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
 
     //test
